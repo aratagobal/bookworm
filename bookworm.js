@@ -30,7 +30,7 @@ window.onload = function() {
       var zip = new JSZip(data);
       showContents(zip);
     });
-  };
+  };  
 };
 
 function displayIndex(books) {
@@ -253,8 +253,8 @@ function handleContainer(archive, data) {
         show('page');
         var pageFile = archive.file(urls[i]);
         var pageEl = document.getElementById('page');
-        pageEl.style.width = window.innerWidth + "px";
-        pageEl.style.height = window.innerHeight + "px";
+        pageEl.style.width = window.innerWidth * 0.95 + "px";
+        pageEl.style.height = window.innerHeight * 0.95 + "px";
         var mimeType;
         if (/.xhtml$/.test(pageFile.name)) {
           mimeType = "application/xhtml+xml";
@@ -262,6 +262,19 @@ function handleContainer(archive, data) {
           mimeType = "text/html";
         }
         pageEl.src = "data:" + mimeType + "," + encodeURIComponent(pageFile.data);
+
+        var mouseLayer = document.getElementById('mouselayer');
+        mouseLayer.style.width = pageEl.clientWidth + "px";
+        mouseLayer.style.height = pageEl.clientHeight + "px";
+        mouseLayer.style.position = 'absolute';
+        mouseLayer.style.zIndex = 99;
+        mouseLayer.onclick = function(ev) {
+          if (ev.screenX > window.innerWidth / 2) {
+            pageEl.contentDocument.documentElement.scrollTop += pageEl.clientHeight * 0.95;
+          } else {
+            pageEl.contentDocument.documentElement.scrollTop -= pageEl.clientHeight * 0.95;
+          }
+        };
       };
     }
     el.onclick = makeDisplayer(i);
