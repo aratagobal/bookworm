@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="bookworm.css">
+  <script type="text/javascript" src="bookworm.js"></script>
+  <script type="text/javascript" src="jszip/jszip.js"></script>
+  <script type="text/javascript" src="jszip/jszip-load.js"></script>
+  <script type="text/javascript" src="jszip/jszip-inflate.js"></script>
+</head>
+<body>
+  <button id="install" onclick="install()">Install as a web app</button>
+
+  <div id="index">
+    <h5>Choose a book to read</h5>
+    <ul id="books">
+    </ul>
+    <input type="file" id="book">
+  </div>
+
+  <div id="toc">
+    <h5>Table of Contents</h5>
+    <ul id="toc_entries">
+    </ul>
+  </div>
+
+  <iframe id="page" frameBorder="0">
+  </iframe>
+
+  <div id="log">
+    <h5>Log</h5>
+  </div>
+</body>
+</html>

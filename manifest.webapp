@@ -1,0 +1,18 @@
+{
+  "type": "privileged",
+  "name": "Bookworm",
+  "description": "Eels eels eels eels",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "Josh Matthews",
+    "url": "http://www.joshmatthews.net"
+  },
+  "default_locale": "en",
+  "permissions": {
+    "device-storage:music": { "access": "readonly" },
+    "device-storage:sdcard": { "access": "readonly" },
+    "settings": { "access": "readonly" }
+  },
+  "icons": {
+  }
+}
